@@ -1,0 +1,493 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171512">
+  <meta name="description" content="Discover timeless fashion, elegant outfits and contemporary style at Atelier Nọra.">
+  <title>Atelier Nọra | Discover Your Elegance</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark: #171512;
+      --cream: #f7f4ee;
+      --gold: #b69a70;
+      --muted: #817b72;
+      --white: #fff;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--dark);
+      background: var(--cream);
+    }
+
+    a { text-decoration: none; color: inherit; }
+    button { font: inherit; cursor: pointer; }
+
+    .announcement {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 11px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    header {
+      height: 82px;
+      padding: 0 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid #e9e4da;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 27px;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    .logo span { color: var(--gold); }
+
+    nav { display: flex; gap: 30px; align-items: center; }
+
+    nav a {
+      font-size: 11px;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    .header-cta {
+      border: 1px solid var(--dark);
+      padding: 12px 19px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      min-height: 620px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 70px 9%;
+      background:
+        linear-gradient(90deg, rgba(15,13,11,.76), rgba(15,13,11,.05)),
+        url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=2000&q=85')
+        center 35%/cover;
+      color: white;
+    }
+
+    .hero-content { max-width: 550px; }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 23px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(45px, 7vw, 82px);
+      line-height: 1.08;
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      max-width: 400px;
+      line-height: 1.9;
+      font-size: 13px;
+      color: #eee9e1;
+      margin-bottom: 34px;
+    }
+
+    .primary-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      padding: 17px 28px;
+      border: 0;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .primary-btn:hover { background: #94764d; }
+
+    .section { padding: 90px 7%; }
+
+    .section-heading { text-align: center; margin-bottom: 48px; }
+
+    .section-heading h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 4vw, 45px);
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .product-card { background: white; }
+
+    .product-image {
+      height: 380px;
+      overflow: hidden;
+      background: #e8e1d6;
+      position: relative;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s;
+    }
+
+    .product-card:hover img { transform: scale(1.05); }
+
+    .product-info { padding: 20px 17px 23px; }
+
+    .product-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 13px;
+    }
+
+    .price { font-size: 14px; font-weight: 700; }
+
+    .order-link {
+      display: block;
+      text-align: center;
+      margin-top: 17px;
+      border: 1px solid var(--dark);
+      padding: 12px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .order-link:hover {
+      background: var(--dark);
+      color: white;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #eae4d9;
+      align-items: center;
+    }
+
+    .story-image { min-height: 500px; }
+
+    .story-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      object-fit: cover;
+    }
+
+    .story-content { padding: 65px 12%; }
+
+    .story-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 43px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 23px;
+    }
+
+    .story-content p {
+      font-size: 13px;
+      line-height: 2;
+      color: #655e54;
+      margin-bottom: 25px;
+    }
+
+    .newsletter {
+      text-align: center;
+      padding: 85px 20px;
+      background: #fdfbf7;
+    }
+
+    .newsletter h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+
+    .newsletter p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 60px 7% 25px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 35px;
+      margin-bottom: 45px;
+    }
+
+    footer h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    footer h4 {
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+      color: var(--gold);
+    }
+
+    footer p, footer a {
+      font-size: 12px;
+      color: #c5beb2;
+      line-height: 2.2;
+      display: block;
+    }
+
+    .copyright {
+      border-top: 1px solid #39352f;
+      padding-top: 22px;
+      text-align: center;
+      color: #9d968b;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 25px;
+      z-index: 30;
+      box-shadow: 0 4px 15px #0003;
+    }
+
+    @media(max-width: 750px) {
+      header { height: 70px; padding: 0 5%; }
+      .logo { font-size: 22px; }
+      nav { gap: 13px; }
+      nav a { font-size: 9px; }
+      .header-cta { display: none; }
+      .hero { min-height: 570px; padding: 55px 7%; background-position: 58% center; }
+      .products { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .product-image { height: 260px; }
+      .product-info { padding: 14px 11px; }
+      .product-info h3 { font-size: 16px; }
+      .product-info p { font-size: 10px; }
+      .story { grid-template-columns: 1fr; }
+      .story-image, .story-image img { min-height: 350px; max-height: 430px; }
+      .story-content { padding: 50px 8%; }
+      .story-content h2 { font-size: 35px; }
+      .footer-content { grid-template-columns: 1fr 1fr; }
+      .footer-content > div:first-child { grid-column: 1/-1; }
+      .section { padding: 65px 5%; }
+    }
+
+    @media(max-width: 390px) {
+      nav { gap: 9px; }
+      nav a { font-size: 8px; }
+      .product-image { height: 220px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="announcement">
+    Complimentary delivery on selected orders
+  </div>
+
+  <header>
+    <a class="logo" href="#">ATELIER <span>NỌRA</span></a>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">Our Story</a>
+    </nav>
+
+    <a href="#shop" class="header-cta">Explore Collection</a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow">The Art of Dressing Well</div>
+        <h1>Elegance is a way of life.</h1>
+        <p>
+          Discover thoughtfully curated fashion designed to celebrate
+          confidence, individuality and timeless beauty.
+        </p>
+        <a href="#shop" class="primary-btn">Discover the Collection</a>
+      </div>
+    </section>
+
+    <section class="section" id="shop">
+      <div class="section-heading">
+        <div class="eyebrow">Curated for You</div>
+        <h2>The Signature Collection</h2>
+        <p>Exceptional style. Beautiful details. Effortless confidence.</p>
+      </div>
+
+      <div class="products">
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=85" alt="Elegant fashion outfit">
+          </div>
+          <div class="product-info">
+            <h3>The Signature Dress</h3>
+            <p>Elegant everyday statement</p>
+            <div class="price">₦45,000</div>
+            <a class="order-link" href="https://wa.me/2348000000000?text=Hello%20Atelier%20Nora%2C%20I%20am%20interested%20in%20The%20Signature%20Dress." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=85" alt="Contemporary women's fashion">
+          </div>
+          <div class="product-info">
+            <h3>The Modern Edit</h3>
+            <p>Contemporary wardrobe essential</p>
+            <div class="price">₦38,000</div>
+            <a class="order-link" href="https://wa.me/2348000000000?text=Hello%20Atelier%20Nora%2C%20I%20am%20interested%20in%20The%20Modern%20Edit." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=85" alt="Luxury fashion collection">
+          </div>
+          <div class="product-info">
+            <h3>The Classic Ensemble</h3>
+            <p>Timeless style and sophistication</p>
+            <div class="price">₦52,000</div>
+            <a class="order-link" href="https://wa.me/2348000000000?text=Hello%20Atelier%20Nora%2C%20I%20am%20interested%20in%20The%20Classic%20Ensemble." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="story" id="about">
+      <div class="story-image">
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1100&q=85" alt="Fashion editorial">
+      </div>
+
+      <div class="story-content">
+        <div class="eyebrow">The Atelier Nọra Philosophy</div>
+        <h2>Style that speaks without saying a word.</h2>
+        <p>
+          At Atelier Nọra, we believe fashion is more than what you wear.
+          It is how you express yourself, how you feel and how you show up
+          in the world.
+        </p>
+        <p>
+          Our collection celebrates thoughtful styling, timeless silhouettes
+          and the beauty of feeling confident in your own skin.
+        </p>
+        <a href="#shop" class="primary-btn">Explore Our Pieces</a>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div class="eyebrow">Stay Inspired</div>
+      <h2>A little more elegance in your inbox.</h2>
+      <p>Connect with us and discover our latest collections.</p>
+      <a class="primary-btn" href="https://instagram.com/" target="_blank" rel="noopener">Follow Our Journey</a>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-content">
+      <div>
+        <h3>ATELIER NỌRA</h3>
+        <p>Timeless fashion for the woman who defines her own elegance.</p>
+      </div>
+
+      <div>
+        <h4>EXPLORE</h4>
+        <a href="#home">Home</a>
+        <a href="#shop">Shop Collection</a>
+        <a href="#about">Our Story</a>
+      </div>
+
+      <div>
+        <h4>CONNECT</h4>
+        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+        <a href="#contact">Contact Us</a>
+        <a href="#shop">Enquiries</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 ATELIER NỌRA. ALL RIGHTS RESERVED.
+    </div>
+  </footer>
+
+  <a class="whatsapp"
+     href="https://wa.me/2348000000000?text=Hello%20Atelier%20Nora"
+     target="_blank"
+     rel="noopener"
+     aria-label="Contact us on WhatsApp">✆</a>
+
+</body>
+</html>
